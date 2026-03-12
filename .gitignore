@@ -1,0 +1,11 @@
+# Windows system files
+desktop.ini
+Thumbs.db
+
+# build outputs
+*.exe
+*.out
+
+# Go cache
+bin/
+pkg/
