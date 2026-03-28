@@ -26,3 +26,14 @@ You can also declare and initialize on the same line without specifying datatype
 Constants are declared using the const keyword and can be of numeric,string or boolean types.
 
 Enums are a set of constant values implemented using const and iota keywords in which each value is initialized by default in a successive auto-incremented way
+
+
+
+
+########## Control Flow & Logic section ########## :-
+
+
+For loop is the only way to loop in Go. It is quite versatile...can be used as classic C-style, a while loop, infinite loop (preferably with jump statements like break or continue) or as a range over arrays.
+
+If (standalone) and else (also after else if) can be used as one kind of conditional statements and 
+switch (having cases (separated by jump statements or fall through) and an optional default) as other.
