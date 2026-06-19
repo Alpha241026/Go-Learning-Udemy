@@ -15,8 +15,8 @@ func main() {
 
 	age := 10
 	agePtr := &age
-	fmt.Printf("agePtr: %d\n", agePtr)
-	fmt.Printf("Age addr: %d\n\n", &age)
+	fmt.Printf("agePtr: %p\n", agePtr)
+	fmt.Printf("Age addr: %p\n\n", &age)
 
 	fmt.Println(age)
 	modifyPointer(&age)
