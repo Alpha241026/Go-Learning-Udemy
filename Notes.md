@@ -37,3 +37,17 @@ For loop is the only way to loop in Go. It is quite versatile...can be used as c
 
 If (standalone) and else (also after else if) can be used as one kind of conditional statements and 
 switch (having cases (separated by jump statements or fall through) and an optional default) as other.
+
+
+
+
+########## Data Structs and Memory ########## :-
+
+Arrays in Go have fixed size, and can be declared empty or have initialized directly.
+
+Slices are abstarctions over arrays that dont need a size to be specified, and adding elements beyond their capacity doubles their size everytime.
+
+Zero value of a map is nil.
+
+A pointer is a variable that holds the address of another variable; in Go, pointer arithmetix is not supported unlike C and C++.
+
