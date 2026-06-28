@@ -58,4 +58,14 @@ A pointer is a variable that holds the address of another variable; in Go, point
 ########## Functions and Error Handling ########## :-
 
 
-Functions are used to group sequence of statements to perform a task, made using func keyword
+Functions are used to group sequence of statements to perform a task, made using func keyword.
+
+Variadic functions can be used if one is unsure about the number of parameters to take as input.
+
+Functions can return multiple values, including errors.
+
+Custom error types can be created with structs.
+
+Defer makes the statement execute at end....and between two defers, the later one is executed first as per lifo behavior.
+
+Panic is used to crash the program and recover called with defer when a panic occurs.
