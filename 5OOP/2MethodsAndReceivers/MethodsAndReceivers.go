@@ -35,6 +35,22 @@ func NewEmployee(id int, firstName, lastName, position string, isActive bool) Em
 	}
 }
 
+func deactivate(e *Employee) {
+	e.IsActive = false
+}
+
 func main() {
-	fmt.Println()
+	jane := Employee{
+		ID:        1,
+		FirstName: "Jane",
+		LastName:  "Doe",
+		Position:  "Night",
+		Salary:    1000,
+		IsActive:  true,
+		JoinedAt:  time.Now(),
+	}
+
+	fmt.Printf("+%v\n", jane)
+	jane.Deactivate()
+	fmt.Printf("+%v\n", jane)
 }
