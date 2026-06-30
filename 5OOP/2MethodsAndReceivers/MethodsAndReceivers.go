@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type Employee struct { //creating new variable Employee of type struct
+type Employee struct { //representing an employee by a struct type
 	ID        int
 	FirstName string
 	LastName  string
@@ -24,7 +24,7 @@ func (e *Employee) Deactivate() { //adding method to struct, mimicking OOP...als
 	e.IsActive = false
 }
 
-func NewEmployee(id int, firstName, lastName, position string, isActive bool) Employee {
+func NewEmployee(id int, firstName, lastName, position string, isActive bool) Employee { //constructor-style helper
 	return Employee{
 		ID:        id,
 		FirstName: firstName,
@@ -50,7 +50,7 @@ func main() {
 		JoinedAt:  time.Now(),
 	}
 
-	fmt.Printf("+%v\n", jane)
+	fmt.Printf("%+v\n", jane)
 	jane.Deactivate()
-	fmt.Printf("+%v\n", jane)
+	fmt.Printf("%+v\n", jane)
 }
