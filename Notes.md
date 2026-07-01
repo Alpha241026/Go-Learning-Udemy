@@ -69,3 +69,19 @@ Custom error types can be created with structs.
 Defer makes the statement execute at end....and between two defers, the later one is executed first as per lifo behavior.
 
 Panic is used to crash the program and recover called with defer when a panic occurs.
+
+
+
+
+########## Object Oriented Programming ########## :-
+
+
+Structs (structures) can be used to define custom concrete types having multiple primitive types inside them.
+
+Methods are funtions but with a receiver that helps better implement encapsulation.
+
+Interfaces specify 'what' (not how) a type can do help define a method signature without providing their implementation. If a type implements the method/s of the interface, it implicitly satisfies it. 
+
+The Stringer interface can be used to improve readability of output by providing a custom alternative to standard printing format.
+
+Generics help provide flexibility over types by allowing a function or type to accept multiple types of data.
