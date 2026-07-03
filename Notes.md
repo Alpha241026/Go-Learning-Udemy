@@ -85,3 +85,17 @@ Interfaces specify 'what' (not how) a type can do help define a method signature
 The Stringer interface can be used to improve readability of output by providing a custom alternative to standard printing format.
 
 Generics help provide flexibility over types by allowing a function or type to accept multiple types of data.
+
+
+
+
+########## Composition And Design Logic ########### :-
+
+
+Composition builds larger types by combining smaller reusable types ("has-a" relationship) instead of inheritance.
+
+Embedding is composition without an explicit field name, promoting the embedded type's fields and methods for direct access.
+
+Fields and methods of an embedded type can be accessed directly through the outer struct as if they belonged to it.
+
+If the outer struct defines a field or method with the same name as an embedded one, the outer definition takes precedence.
