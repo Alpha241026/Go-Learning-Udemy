@@ -99,3 +99,28 @@ Embedding is composition without an explicit field name, promoting the embedded 
 Fields and methods of an embedded type can be accessed directly through the outer struct as if they belonged to it.
 
 If the outer struct defines a field or method with the same name as an embedded one, the outer definition takes precedence.
+
+
+
+
+########## String Processing And Text ########## :-
+
+
+strings.Builder → Efficiently builds large strings without repeated allocations.
+TrimSpace() → Removes leading and trailing whitespace.
+Split() ↔ Join() → Convert between strings and slices.
+Fields() → Splits a string on whitespace.
+HasPrefix()/HasSuffix() → Checks the beginning/end of a string.
+Replace()/ReplaceAll() → Replaces substrings.
+
+fmt.Sprintf() → Returns a formatted string.
+fmt.Printf() → Prints formatted output to the console.
+Formatting Verbs:
+%s  string
+%d  integer
+%f  float
+%t  boolean
+%v  default value
+%+v struct with field names
+%#v Go-syntax representation
+fmt.Errorf() → Creates or wraps formatted errors (%w preserves the original error).
