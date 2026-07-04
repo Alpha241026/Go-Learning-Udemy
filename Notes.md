@@ -1,6 +1,7 @@
 ########## General ########## :-
 
 
+
 Every go executable is part of a main package...and this is where the program execution begins from a main function
 
 Use go build to compile your source code into a single static binary and go run to run it.
@@ -12,7 +13,10 @@ In a Go program, you must use every library that you import.
 
 
 
+
+
 ########## Core Language Fundamentals section ########## :-
+
 
 
 The type of a variable is usually meentioned after its name when declaring.
@@ -30,7 +34,10 @@ Enums are a set of constant values implemented using const and iota keywords in 
 
 
 
+
+
 ########## Control Flow & Logic section ########## :-
+
 
 
 For loop is the only way to loop in Go. It is quite versatile...can be used as classic C-style, a while loop, infinite loop (preferably with jump statements like break or continue) or as a range over arrays.
@@ -41,7 +48,10 @@ switch (having cases (separated by jump statements or fall through) and an optio
 
 
 
+
+
 ########## Data Structs and Memory ########## :-
+
 
 
 Arrays in Go have fixed size, and can be declared empty or have initialized directly.
@@ -55,7 +65,10 @@ A pointer is a variable that holds the address of another variable; in Go, point
 
 
 
+
+
 ########## Functions and Error Handling ########## :-
+
 
 
 Functions are used to group sequence of statements to perform a task, made using func keyword.
@@ -73,7 +86,10 @@ Panic is used to crash the program and recover called with defer when a panic oc
 
 
 
+
+
 ########## Object Oriented Programming ########## :-
+
 
 
 Structs (structures) can be used to define custom concrete types having multiple primitive types inside them.
@@ -89,7 +105,10 @@ Generics help provide flexibility over types by allowing a function or type to a
 
 
 
+
+
 ########## Composition And Design Logic ########### :-
+
 
 
 Composition builds larger types by combining smaller reusable types ("has-a" relationship) instead of inheritance.
@@ -103,7 +122,10 @@ If the outer struct defines a field or method with the same name as an embedded 
 
 
 
+
+
 ########## String Processing And Text ########## :-
+
 
 
 strings.Builder → Efficiently builds large strings without repeated allocations.
@@ -114,7 +136,6 @@ HasPrefix()/HasSuffix() → Checks the beginning/end of a string.
 Replace()/ReplaceAll() → Replaces substrings.
 
 fmt.Sprintf() → Returns a formatted string.
-fmt.Printf() → Prints formatted output to the console.
 Formatting Verbs:
 %s  string
 %d  integer
@@ -124,3 +145,18 @@ Formatting Verbs:
 %+v struct with field names
 %#v Go-syntax representation
 fmt.Errorf() → Creates or wraps formatted errors (%w preserves the original error).
+
+Strings in Go are UTF-8 encoded (variable-length encoding).
+len(string) returns bytes, not characters (runes).
+A rune represents one Unicode code point (character).
+Use 'for range' to iterate over characters safely.
+
+Regex → Pattern matching for searching, validating and extracting text.
+Compile() / MustCompile() → Create regex patterns.
+MatchString() → Match check
+FindString() → First match
+FindAllString() → All matches
+
+Templates → Generate dynamic text using placeholders.
+Parse() → Compile template.
+Execute() → Render template with data.
