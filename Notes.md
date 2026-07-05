@@ -160,3 +160,5 @@ FindAllString() → All matches
 Templates → Generate dynamic text using placeholders.
 Parse() → Compile template.
 Execute() → Render template with data.
+
+bufio.Scanner → Reads input line-by-line.
