@@ -169,3 +169,10 @@ bufio.Scanner → Reads input line-by-line.
 
 
 ########## Concurrency Mastery ########### :-
+
+
+
+A goroutine is a lightweight concurrent function started using the 'go' keyword.
+
+WaitGroup is a shared counter used to wait for multiple goroutines.
+`Add()` increments, `Done()` decrements, and `Wait()` blocks until the counter reaches zero.
