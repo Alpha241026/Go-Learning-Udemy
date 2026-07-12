@@ -176,3 +176,12 @@ A goroutine is a lightweight concurrent function started using the 'go' keyword.
 
 WaitGroup is a shared counter used to wait for multiple goroutines.
 `Add()` increments, `Done()` decrements, and `Wait()` blocks until the counter reaches zero.
+
+A channel is a typed pipe used to safely send data between goroutines.
+`channel <- value` sends data, while `value := <-channel` receives it.
+
+Buffered channels store a limited number of values before blocking the sender.
+Unbuffered channels require sender and receiver simultaneously; buffered channels allow temporary asynchronous communication.
+
+`close(channel)` signals that no more values will be sent; buffered values can still be received.
+`value, ok := <-channel` returns `ok=false` once the channel is closed and empty.
