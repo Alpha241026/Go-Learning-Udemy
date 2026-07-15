@@ -185,3 +185,10 @@ Unbuffered channels require sender and receiver simultaneously; buffered channel
 
 `close(channel)` signals that no more values will be sent; buffered values can still be received.
 `value, ok := <-channel` returns `ok=false` once the channel is closed and empty.
+
+select waits for the first channel operation that becomes ready.
+context is used to cancel or control goroutines across a request.
+time.After() returns a channel that receives a value after a specified duration.
+
+A mutex protects shared data by allowing only one goroutine to access a critical section at a time.
+Always `Lock()` before accessing shared mutable data and `Unlock()` (usually with `defer`) when finished.
