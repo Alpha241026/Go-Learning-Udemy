@@ -192,3 +192,18 @@ time.After() returns a channel that receives a value after a specified duration.
 
 A mutex protects shared data by allowing only one goroutine to access a critical section at a time.
 Always `Lock()` before accessing shared mutable data and `Unlock()` (usually with `defer`) when finished.
+
+
+
+
+
+
+########## File I/O And System Programming ########## :-
+
+
+
+`os.WriteFile()` and `os.ReadFile()` read/write an entire file at once.
+
+`os.Open()` opens a file for reading, while `os.OpenFile()` allows custom modes (append, create, write, etc.).
+
+`bufio.Scanner` reads files efficiently line by line.
