@@ -203,7 +203,18 @@ Always `Lock()` before accessing shared mutable data and `Unlock()` (usually wit
 
 
 `os.WriteFile()` and `os.ReadFile()` read/write an entire file at once.
-
 `os.Open()` opens a file for reading, while `os.OpenFile()` allows custom modes (append, create, write, etc.).
-
 `bufio.Scanner` reads files efficiently line by line.
+
+`filepath.Join()` builds OS-independent file paths.
+`filepath.Base()` returns the file or directory name.
+`filepath.Ext()` returns a file's extension.
+`filepath.Clean()` normalizes a path by removing `.` and resolving `..`.
+
+`os.MkdirAll()` creates a directory along with any missing parent directories.
+`os.RemoveAll()` recursively deletes a directory and all of its contents.
+Use `filepath.Clean()` before filesystem operations to normalize paths.
+
+`os.CreateTemp()` creates a uniquely named temporary file in the system's temp directory.
+`os.MkdirTemp()` creates a temporary directory for short-lived data.
+Clean up temporary resources with `defer` using `os.Remove()` or `os.RemoveAll()`.
