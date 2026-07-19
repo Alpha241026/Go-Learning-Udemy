@@ -218,3 +218,7 @@ Use `filepath.Clean()` before filesystem operations to normalize paths.
 `os.CreateTemp()` creates a uniquely named temporary file in the system's temp directory.
 `os.MkdirTemp()` creates a temporary directory for short-lived data.
 Clean up temporary resources with `defer` using `os.Remove()` or `os.RemoveAll()`.
+
+`//go:embed` embeds files or directories into the compiled executable.
+`embed.FS` provides a read-only virtual filesystem for accessing embedded resources.
+-Embedded files are packaged at compile time, eliminating the need to ship them separately.
