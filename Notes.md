@@ -128,38 +128,18 @@ If the outer struct defines a field or method with the same name as an embedded 
 
 
 
-strings.Builder → Efficiently builds large strings without repeated allocations.
-TrimSpace() → Removes leading and trailing whitespace.
-Split() ↔ Join() → Convert between strings and slices.
-Fields() → Splits a string on whitespace.
-HasPrefix()/HasSuffix() → Checks the beginning/end of a string.
-Replace()/ReplaceAll() → Replaces substrings.
+The `strings` package provides efficient utilities for manipulating text.
+Common operations include trimming (`TrimSpace()`), splitting/joining (`Split()`, `Join()`, `Fields()`), searching (`HasPrefix()`, `HasSuffix()`), and replacing (`Replace()`, `ReplaceAll()`).
 
-fmt.Sprintf() → Returns a formatted string.
-Formatting Verbs:
-%s  string
-%d  integer
-%f  float
-%t  boolean
-%v  default value
-%+v struct with field names
-%#v Go-syntax representation
-fmt.Errorf() → Creates or wraps formatted errors (%w preserves the original error).
+`strings.Builder` efficiently constructs large strings without repeated allocations.
 
-Strings in Go are UTF-8 encoded (variable-length encoding).
-len(string) returns bytes, not characters (runes).
-A rune represents one Unicode code point (character).
-Use 'for range' to iterate over characters safely.
+The `fmt` package supports formatted strings and formatted errors through `Sprintf()` and `Errorf()`.
 
-Regex → Pattern matching for searching, validating and extracting text.
-Compile() / MustCompile() → Create regex patterns.
-MatchString() → Match check
-FindString() → First match
-FindAllString() → All matches
+Regular expressions provide pattern matching for validation, searching and extraction.
+Compile patterns once with `Compile()` or `MustCompile()`, then reuse methods like `MatchString()` and `FindAllString()`.
 
-Templates → Generate dynamic text using placeholders.
-Parse() → Compile template.
-Execute() → Render template with data.
+Templates generate dynamic text using placeholders.
+`Parse()` compiles the template and `Execute()` renders it with data.
 
 bufio.Scanner → Reads input line-by-line.
 
@@ -186,9 +166,8 @@ Unbuffered channels require sender and receiver simultaneously; buffered channel
 `close(channel)` signals that no more values will be sent; buffered values can still be received.
 `value, ok := <-channel` returns `ok=false` once the channel is closed and empty.
 
-select waits for the first channel operation that becomes ready.
-context is used to cancel or control goroutines across a request.
-time.After() returns a channel that receives a value after a specified duration.
+`select` waits for the first channel operation that becomes ready.
+`context` coordinates cancellation or timeouts across goroutines, while `time.After()` creates a timeout channel after a specified duration.
 
 A mutex protects shared data by allowing only one goroutine to access a critical section at a time.
 Always `Lock()` before accessing shared mutable data and `Unlock()` (usually with `defer`) when finished.
@@ -202,23 +181,38 @@ Always `Lock()` before accessing shared mutable data and `Unlock()` (usually wit
 
 
 
-`os.WriteFile()` and `os.ReadFile()` read/write an entire file at once.
-`os.Open()` opens a file for reading, while `os.OpenFile()` allows custom modes (append, create, write, etc.).
-`bufio.Scanner` reads files efficiently line by line.
+Go provides high-level helpers for reading and writing entire files, along with lower-level APIs for more control.
+`os.WriteFile()`, `os.ReadFile()`, `os.Open()` and `os.OpenFile()` cover the most common file operations.
 
-`filepath.Join()` builds OS-independent file paths.
-`filepath.Base()` returns the file or directory name.
-`filepath.Ext()` returns a file's extension.
-`filepath.Clean()` normalizes a path by removing `.` and resolving `..`.
+The `filepath` package provides OS-independent path manipulation utilities.
+Common helpers include `Join()`, `Base()`, `Ext()` and `Clean()`.
 
-`os.MkdirAll()` creates a directory along with any missing parent directories.
-`os.RemoveAll()` recursively deletes a directory and all of its contents.
-Use `filepath.Clean()` before filesystem operations to normalize paths.
+Directories can be created recursively or removed together with all their contents.
+`os.MkdirAll()` creates missing parents, while `os.RemoveAll()` removes an entire directory tree.
 
-`os.CreateTemp()` creates a uniquely named temporary file in the system's temp directory.
-`os.MkdirTemp()` creates a temporary directory for short-lived data.
-Clean up temporary resources with `defer` using `os.Remove()` or `os.RemoveAll()`.
+Temporary files and directories are useful for short-lived data and should usually be cleaned up with `defer`.
+`os.CreateTemp()` and `os.MkdirTemp()` create unique temporary resources.
 
-`//go:embed` embeds files or directories into the compiled executable.
-`embed.FS` provides a read-only virtual filesystem for accessing embedded resources.
--Embedded files are packaged at compile time, eliminating the need to ship them separately.
+The `embed` package bundles files or directories into the compiled executable at build time.
+Embedded resources are accessed through the read-only `embed.FS`.
+
+
+
+
+
+
+########## Data Encoding & Security ########## :-
+
+
+
+JSON marshalling converts Go values into JSON for storage or communication.
+Struct tags control field names, while only exported fields participate in encoding.
+
+JSON unmarshalling converts JSON back into Go values and requires a pointer to populate the destination.
+Nested JSON maps naturally to nested structs, while `json:"-"` excludes fields from encoding and decoding.
+
+JSON encoders stream encoded data directly to an `io.Writer` such as a file, terminal or HTTP response.
+Unlike `Marshal()`, they avoid creating an intermediate `[]byte`.
+
+JSON decoders read and decode JSON directly from an `io.Reader` such as a string, file or network stream.
+`json.NewDecoder()` is preferred when processing streamed or continuously read JSON data.
