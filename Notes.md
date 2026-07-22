@@ -216,3 +216,6 @@ Unlike `Marshal()`, they avoid creating an intermediate `[]byte`.
 
 JSON decoders read and decode JSON directly from an `io.Reader` such as a string, file or network stream.
 `json.NewDecoder()` is preferred when processing streamed or continuously read JSON data.
+
+Base64 converts arbitrary binary data into a text-safe representation and can be reversed without losing information.
+`EncodeToString()` encodes bytes into Base64, while `DecodeString()` restores the original bytes.
