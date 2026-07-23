@@ -219,3 +219,25 @@ JSON decoders read and decode JSON directly from an `io.Reader` such as a string
 
 Base64 converts arbitrary binary data into a text-safe representation and can be reversed without losing information.
 `EncodeToString()` encodes bytes into Base64, while `DecodeString()` restores the original bytes.
+
+
+
+
+
+
+########## Database Programming ########## :-
+
+
+
+A database schema defines the structure and constraints of stored data, such as tables, columns and relationships.
+
+`db.Exec()` executes SQL statements that perform actions (e.g., `CREATE`, `INSERT`, `UPDATE`, `DELETE`) without returning query results.
+
+
+SQL statements can use placeholders (`?`) to safely pass values and prevent SQL injection.
+`db.Exec()` executes INSERT statements, while `sql.Result` provides metadata such as the last inserted ID.
+
+Passwords should never be stored directly; store a secure hash instead.
+`bcrypt.GenerateFromPassword()` creates a password hash that can later be verified without revealing the original password.
+
+

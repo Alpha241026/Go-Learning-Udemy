@@ -37,7 +37,6 @@ func main() {
 	}
 
 	fmt.Println("database connection established")
-
 }
 
 // create the users table if it doesn't already exist

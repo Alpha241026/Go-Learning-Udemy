@@ -4,10 +4,12 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
+// database schema used to initialize the users table
 var schema = `
 	CREATE TABLE IF NOT EXISTS users (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,9 +22,9 @@ var schema = `
 
 func main() {
 	dbName := "data.db"
-	// you can use _ = os.Remove(dbName) to clear db on every run for practice...but never in production !
+	_ = os.Remove(dbName) //clears db on every run....for practice purposes here...never use in production !
 
-	db, err := sql.Open("sqlite3", dbName)
+	db, err := sql.Open("sqlite3", dbName) //open a database handle using the SQLite driver
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -34,14 +36,14 @@ func main() {
 		}
 	}()
 
-	err = db.Ping()
+	err = db.Ping() //verify that the database connection is ready
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Println("database conection established")
 
-	_, err = db.Exec(schema)
+	_, err = db.Exec(schema) //execute the schema to create the users table
 	if err != nil {
 		log.Fatal(err)
 	}
